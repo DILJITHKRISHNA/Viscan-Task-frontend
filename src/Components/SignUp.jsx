@@ -1,12 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import signUpImg from '../assets/images/SignUp.avif'
 import { useNavigate } from 'react-router-dom'
+import { SignupUser } from '../Api/UserApi'
 function SignUp() {
 
     const navigate = useNavigate()
-    const handleSubmit = () => {
+    const [userData, SetUserData] = useState({
+        name: '',
+        email: '',
+        password: '',
+    })
 
+    const handleOnchange = (e) => {
+        e.preventDefault()
+        try {
+            const { name, value } = e.target
+            SetUserData({
+                ...userData,
+                [name]: value
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    const handleSubmit = async () => {
+        try {
+            const response = await SignupUser(userData)
+            console.log(response,"rsponse in handle submit signup");
+            if (response.data.success) {
+                toast.success(response.data.message)
+                setTimeout(() => {
+                    navigate('/login')
+                }, 2000);
+            }
+        } catch (error) {
+
+        }
     }
     const handleClick = () => {
         try {
@@ -31,9 +62,9 @@ function SignUp() {
                         <label htmlFor="" className='font-semibold'>Username</label>
                         <input
                             type="text"
-                            name='email'
+                            name='name'
                             placeholder='Username'
-                            // onChange={handleOnchange}
+                            onChange={handleOnchange}
                             className='border-2 border-gray-200 sm:w-[22rem] w-[15rem] justify-center p-3 rounded-xl'
                         />
 
@@ -42,7 +73,7 @@ function SignUp() {
                             type="text"
                             name='email'
                             placeholder='Email'
-                            // onChange={handleOnchange}
+                            onChange={handleOnchange}
                             className='border-2 border-gray-200 sm:w-[22rem] w-[15rem] justify-center p-3 rounded-xl'
                         />
                         <label htmlFor="" className='font-semibold'>Password</label>
@@ -50,7 +81,7 @@ function SignUp() {
                             type="password"
                             name='password'
                             placeholder='Password'
-                            // onChange={handleOnchange}
+                            onChange={handleOnchange}
                             className='border-2 border-gray-200 sm:w-[22rem] w-[15rem] justify-center p-3 rounded-xl'
                         />
                     </div>
