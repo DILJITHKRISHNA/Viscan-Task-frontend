@@ -3,6 +3,8 @@ import { FaSearch } from 'react-icons/fa';
 import { TiWeatherPartlySunny, TiWeatherSunny, TiWeatherDownpour } from 'react-icons/ti';
 import SkyBg from '../assets/images/sky.avif'
 import { FaRegHeart, FaHeart } from "react-icons/fa";
+import Profile from './Profile';
+import { useSelector } from 'react-redux';
 
 function Home() {
     const [search, setSearch] = useState('');
@@ -11,6 +13,8 @@ function Home() {
     const [description, setDescription] = useState('So Cloudy');
     const [humidity, setHumidity] = useState('48%');
     const [wind, setWind] = useState('5 km/h');
+    const [isOpen, setIsOpen] = useState(false);
+
 
     const handleSearch = () => {
         
@@ -32,7 +36,7 @@ function Home() {
                                             <FaHeart className='w-6 h-6 hover:text-red-500' />
                                             <h1>Wishlist</h1>
                                             <img src={SkyBg} alt="" className='rounded-full w-8 h-8' />
-                                            <h1>Name</h1>
+                                            <Profile />
                                         </div>
                                     </span>
                                 </div>
@@ -64,7 +68,7 @@ function Home() {
                             <div className='flex flex-row items-center justify-between'>
                                 <TiWeatherPartlySunny className='text-yellow-500 text-6xl mb-2' />
                                 <span className='flex flex-col cursor-pointer items-center'>
-                                    <FaRegHeart className='w-6 h-6 ' />
+                                    <FaRegHeart className="w-6 h-6 text-gray-500 hover:text-red-500 transition-transform transform hover:scale-125"/>
                                     <h1 className='font-semibold'>Add</h1>
                                 </span>
                             </div>

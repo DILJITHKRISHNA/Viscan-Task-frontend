@@ -4,9 +4,12 @@ import 'react-toastify/dist/ReactToastify.css'
 import loginImg from '../assets/images/loginImg.avif'
 import { useNavigate } from 'react-router-dom'
 import { UserLogin } from '../Api/UserApi'
+import { useDispatch } from 'react-redux'
+import { setUserDetails } from '../Redux/UserSlice'
 
 function Login() {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const [data, SetData] = useState({
         email: '',
         password: ''
@@ -32,6 +35,14 @@ function Login() {
             console.log(response);
             if (response.data.success) {
                 localStorage.setItem('Usertoken', response.data.token)
+                dispatch(
+                    setUserDetails({
+                        _id: response.data.user.id,
+                        email: response.data.user.email,
+                        name: response.data.user.name,
+                        token: response.data.token
+                    })
+                )
                 toast.success("Login Successfull!")
                 setTimeout(() => {
                     navigate('/')
