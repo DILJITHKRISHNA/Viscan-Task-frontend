@@ -1,4 +1,4 @@
-Here is the instruction:-
+Here is the instructions:-
 
 Technologies used:-
 
