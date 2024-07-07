@@ -35,7 +35,7 @@ Initial setup: -
   ➱ **npm install**
   ➱ To start the frontend, use **npm run dev** command
 
- Access the application using http://localhost:5173 this url.
+ Access the application using http://localhost:5173 url.
 
 If you are facing any issues with accessing or if I lack any instructions, my apologies for it. Feel free to connect with me to clear up the issue.
   
