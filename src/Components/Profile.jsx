@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import SkyBg from '../assets/images/sky.avif'
+import userImg from '../assets/images/user.png'
 import { toast, ToastContainer } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -31,10 +31,10 @@ function Profile() {
                 <div className="absolute top-10 right-0 mt-2 w-80 p-4 bg-white border border-gray-200 shadow-lg z-10 rounded-xl">
                     <div className='flex flex-col items-start gap-3'>
                         <h6 className="text-lg text-gray-700 mb-6 font-mono font-bold underline">Your Profile</h6>
-                        <img src={SkyBg} alt="" className='flex rounded-full w-12 h-12 ' />
+                        <img src={userImg} alt="" className='flex rounded-full w-12 h-12 ' />
                         <p className="text-sm text-gray-600 mb-1 font-bold">Name: <span className='text-black font-mono'>{selector.name}</span></p>
                         <p className="text-sm text-gray-600 mb-1 font-bold">Email: <span className='text-black font-mono'>{selector.email}</span></p>
-                        <button className='bg-black p-1 rounded-lg font-bold' onClick={handleLogout}>Logout</button>
+                        <button className='bg-black p-2 rounded-lg font-bold font-mono' onClick={handleLogout}>Logout</button>
                     </div>
 
                 </div>
