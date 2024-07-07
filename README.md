@@ -13,6 +13,13 @@ Weather Forecast: View weather forecasts for the upcoming days.
 Historical Weather Data: Access past weather records for various cities.
 Favorite Cities: Add or remove cities from your list of favorites for quick access to weather information.
 
+Features
+User Registration & Authentication: Secure user registration and login with JWT-based authentication.
+Current Weather: Get real-time weather updates for any city.
+Weather Forecast: View weather forecasts for the upcoming days.
+Historical Weather Data: Access past weather records for various cities.
+Favorite Cities: Add or remove cities from your list of favorites for quick access to weather information.
+
 Api Used :- openWeatherMap (for the weather data's)
 
 Initial setup: -
