@@ -27,20 +27,24 @@ function SignUp() {
     }
     const handleSubmit = async () => {
         try {
-            if (userData.password.length >= 8) {
-
-                const response = await SignupUser(userData)
-                console.log(response, "rsponse in handle submit signup");
-                if (response.data.success) {
-                    toast.success(response.data.message)
-                    setTimeout(() => {
-                        navigate('/login')
-                    }, 2000);
-                } else {
-                    toast.error(response.data.message)
-                }
+            if (userData.email.trim() == "" || userData.name.trim() == "" || userData.password.trim() === "") {
+                toast.error("Please fill all the fields")
             } else {
-                toast.error("Password must be atleast 8 characters! ")
+
+                if (userData.password.length >= 8) {
+                    const response = await SignupUser(userData)
+                    console.log(response, "rsponse in handle submit signup");
+                    if (response.data.success) {
+                        toast.success(response.data.message)
+                        setTimeout(() => {
+                            navigate('/login')
+                        }, 2000);
+                    } else {
+                        toast.error(response.data.message)
+                    }
+                } else {
+                    toast.error("Password must be atleast 8 characters! ")
+                }
             }
         } catch (error) {
 

@@ -7,8 +7,9 @@ import Profile from './Profile';
 import { toast, ToastContainer } from 'react-toastify';
 import { getWeatherByCoords } from '../WeatherServices/Services';
 import Favorites from './Favorites';
-import { AddtoFavorites, GetCityWeather, GetFavorites } from '../Api/UserApi';
+import { AddtoFavorites, GetCityWeather } from '../Api/UserApi';
 import DailyForcast from './DailyForcast';
+import PastForecast from './PastForecast';
 
 function Home() {
     const [weatherData, setWeatherData] = useState(null);
@@ -58,10 +59,10 @@ function Home() {
         try {
             const response = await AddtoFavorites(name, temp, desc, humidity)
             if (response.data.success) {
+                toast.success("Added to Favorites")
                 setTimeout(() => {
-                    toast.success("Added to Favorites")
-                }, 2000);
-                window.location.reload();
+                    window.location.reload();
+                }, 1500);
             } else {
                 toast.error(response.data.message)
             }
@@ -70,12 +71,13 @@ function Home() {
         }
     }
 
+
     return (
         <>
             <div className="min-h-screen flex items-center justify-center bg-gray-100">
                 <div className="bg-white shadow-lg rounded-lg overflow-hidden w-screen lg:flex">
                     <div className="lg:w-2/3 bg-cover bg-center"
-                        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')` }}>
+                        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1566996694954-90b052c413c4?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')` }}>
                         <div className="p-6 flex flex-col h-full justify-between text-white bg-opacity-50">
                             <div>
                                 <div className='flex flex-row items-center justify-between '>
@@ -83,7 +85,7 @@ function Home() {
                                     <span className='flex flex-col items-center gap-2 cursor-pointer'>
                                         <div className='flex sm:flex-row flex-col items-center gap-4'>
                                             <span className='flex flex-col sm:flex-row items-center justify-center gap-2'>
-                                                <Favorites/>
+                                                <Favorites />
                                                 <h1 className='font-semibold hover:text-gray-300'>Wishlist</h1>
                                             </span>
                                             <img src={userImg} alt="" className='rounded-full w-8 h-8' />
@@ -135,20 +137,8 @@ function Home() {
                             </div>
                         </div>
                         <DailyForcast searchData={search} lat={lat} long={long} />
-                        <div>
-                            <h2 className="text-lg font-semibold text-gray-800 mb-2">Past 7-Day Forecast</h2>
-                            <div className="bg-gray-100 p-4 rounded-lg shadow-md">
-                                <ul>
-                                    <li className="text-gray-700 py-1">Mon: 23°C, Sunny</li>
-                                    <li className="text-gray-700 py-1">Tue: 21°C, Cloudy</li>
-                                    <li className="text-gray-700 py-1">Wed: 20°C, Rainy</li>
-                                    <li className="text-gray-700 py-1">Thu: 22°C, Partly Cloudy</li>
-                                    <li className="text-gray-700 py-1">Fri: 24°C, Sunny</li>
-                                    <li className="text-gray-700 py-1">Sat: 23°C, Cloudy</li>
-                                    <li className="text-gray-700 py-1">Sun: 22°C, Rainy</li>
-                                </ul>
-                            </div>
-                        </div>
+                        
+                        <PastForecast city={search} lat={lat} long={long}/>
                     </div>
                 </div>
                 <ToastContainer />

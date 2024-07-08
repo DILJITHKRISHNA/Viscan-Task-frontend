@@ -30,25 +30,31 @@ function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
         try {
             const response = await UserLogin(data)
             console.log(response);
-            if (response.data.success) {
-                localStorage.setItem('Usertoken', response.data.token)
-                dispatch(
-                    setUserDetails({
-                        _id: response.data.user.id,
-                        email: response.data.user.email,
-                        name: response.data.user.name,
-                        token: response.data.token
-                    })
-                )
-                toast.success("Login Successfull!")
-                setTimeout(() => {
-                    navigate('/')
-                }, 2000);
+            if (data.email.trim() == "" || data.password.trim() == "") {
+                toast.error("Please fill all the fields")
             } else {
-                toast.error(response.data.message)
+
+                if (response.data.success) {
+                    localStorage.setItem('Usertoken', response.data.token)
+                    dispatch(
+                        setUserDetails({
+                            _id: response.data.user.id,
+                            email: response.data.user.email,
+                            name: response.data.user.name,
+                            token: response.data.token
+                        })
+                    )
+                    toast.success("Login Successfull!")
+                    setTimeout(() => {
+                        navigate('/')
+                    }, 2000);
+                } else {
+                    toast.error(response.data.message)
+                }
             }
 
         } catch (error) {
