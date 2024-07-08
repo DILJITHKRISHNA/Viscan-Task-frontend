@@ -97,7 +97,7 @@ function SignUp() {
                         />
                     </div>
                     <div className='flex items-center gap-2 sm:ml-[10rem] ml-14 bg-[#6db6ff] border-2 hover:border-gray-500 sm:w-[22rem] w-[15rem] sm:justify-center p-2 rounded-full'>
-                        <button className='w-[22rem] justify-center p-3 rounded-xl text-white font-bold' onClick={handleSubmit}>Sign In</button>
+                        <button className='w-[22rem] justify-center p-3 rounded-xl text-white font-bold' onClick={handleSubmit}>Sign Up</button>
                     </div>
                     <span className='sm:ml-[14rem] ml-14'>Already have an account? <button className='underline' onClick={handleClick}>Sign in</button></span>
                 </div>
