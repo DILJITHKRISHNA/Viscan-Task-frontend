@@ -66,7 +66,7 @@ function SignUp() {
                 <div className='flex flex-col gap-10'>
                     <span className='flex flex-row sm:items-center sm:ml-[10rem] ml-[1rem]'>
                         <div className='w-24 border-b-2 border-gray-200'></div>
-                        <span className='px-4 text-gray-500'>Sign up with email</span>
+                        <span className='px-4 text-gray-500'>Sign up</span>
                         <div className='w-24 border-b-2 border-gray-200'></div>
                     </span>
                     <div className='flex flex-col sm:ml-[10rem] gap-2 ml-14'>
