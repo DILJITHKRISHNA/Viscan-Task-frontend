@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const UserApi = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: import.meta.env.FRONTEND_URL
 })
 
 export async function SignupUser(signupData) {
