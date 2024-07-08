@@ -1,7 +1,6 @@
 import axios from 'axios';
 const UserApi = axios.create({
-    // baseURL: import.meta.env.VITE_BACKEND_URL
-    baseURL: "https://weather-vi.onrender.com"
+    baseURL: import.meta.env.VITE_BACKEND_URL
 })
 
 export async function SignupUser(signupData) {
