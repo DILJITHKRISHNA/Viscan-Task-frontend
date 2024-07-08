@@ -1,5 +1,4 @@
 import axios from 'axios';
-console.log(import.meta.env.VITE_BACKEND_URL,"iiiiiiiii");
 const UserApi = axios.create({
     // baseURL: import.meta.env.VITE_BACKEND_URL
     baseURL: "https://weather-vi.onrender.com"
