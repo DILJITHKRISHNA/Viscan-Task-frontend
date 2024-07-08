@@ -63,11 +63,11 @@ export async function DeleteFav(id) {
         console.log(error);
     }
 }
-// export async function GetPastForcast(city, lat, long) {
-//     console.log(city, lat, long, "city lat long");
+// export async function GetPastForcast(city) {
+//     console.log(city, "city");
 //     try {
-//         const res = await UserApi.get(`/weather/historical/${city}/${lat}/${long}`)
-//         console.log(res, "res in DeleteFav apiiii");
+//         const res = await UserApi.get(`/weather/historical/${city}`)
+//         console.log(res, "res in GetPastForcast apiiii");
 //         return res
 //     } catch (error) {
 //         console.log(error);

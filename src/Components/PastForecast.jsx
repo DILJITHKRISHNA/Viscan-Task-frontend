@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 // import { GetPastForcast } from '../Api/UserApi';
 
-function PastForecast({city, lat, long}) {
+function PastForecast({city}) {
     // useEffect(()=>{
     //     const pastData = async () => {
     //         try {
-    //             const response = await GetPastForcast(city, lat, long)
-    //             // console.log(response,"sssseeeeeeeeee");
+    //             const response = await GetPastForcast(city)
+    //             console.log(response,"sssdeesedyffddddd");
     //         } catch (error) {
     //             console.log(error.message,"error in pasData");
     //         }

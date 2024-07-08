@@ -137,8 +137,7 @@ function Home() {
                             </div>
                         </div>
                         <DailyForcast searchData={search} lat={lat} long={long} />
-                        
-                        <PastForecast city={search} lat={lat} long={long}/>
+                        <PastForecast city={search} />
                     </div>
                 </div>
                 <ToastContainer />
