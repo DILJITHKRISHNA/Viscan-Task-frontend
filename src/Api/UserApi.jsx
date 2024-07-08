@@ -1,6 +1,8 @@
 import axios from 'axios';
+const baseUrl = import.meta.env.VITE_BACKEND_URL
+
 const UserApi = axios.create({
-    baseURL: import.meta.env.VITE_BACKEND_URL
+    baseURL: baseUrl
 })
 
 export async function SignupUser(signupData) {
