@@ -6,7 +6,7 @@ function PastForecast({city}) {
     //     const pastData = async () => {
     //         try {
     //             const response = await GetPastForcast(city)
-    //             console.log(response,"sssdeesedyffddddd");
+    //             console.log(response,"sssdeesedddydffssdsdddd");
     //         } catch (error) {
     //             console.log(error.message,"error in pasData");
     //         }

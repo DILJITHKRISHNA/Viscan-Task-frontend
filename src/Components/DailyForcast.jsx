@@ -28,17 +28,6 @@ function DailyForcast({ searchData, lat, long }) {
         return new Intl.DateTimeFormat('en-US', options).format(date);
     };
 
-    // useEffect(()=>{
-    //     const PastForcast = async() => {
-    //         try {
-    //             const response = await GetPastForcast(searchData, lat, long)
-    //             console.log(response,"oiiiiiiiiiiiiiiii");
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     }
-    //     PastForcast()
-    // })
     return (
         <div>
             <h2 className="text-lg font-semibold text-gray-800 mb-2">7-Day Forecast</h2>
