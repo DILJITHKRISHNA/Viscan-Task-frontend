@@ -1,7 +1,8 @@
 import axios from 'axios';
-
+console.log(import.meta.env.VITE_BACKEND_URL,"iiiiiiiii");
 const UserApi = axios.create({
-    baseURL: import.meta.env.BACKEND_URL
+    // baseURL: import.meta.env.VITE_BACKEND_URL
+    baseURL: "https://weather-vi.onrender.com"
 })
 
 export async function SignupUser(signupData) {
@@ -21,6 +22,7 @@ export async function UserLogin(logindata) {
         console.log(error);
     }
 }
+
 export async function GetCityWeather(city) {
     try {
         const res = await UserApi.get(`/weather/current/${city}`)
@@ -29,6 +31,7 @@ export async function GetCityWeather(city) {
         console.log(error);
     }
 }
+
 export async function GetCityDailyForcast(city) {
     try {
         const res = await UserApi.get(`/weather/forecast/${city}`)
